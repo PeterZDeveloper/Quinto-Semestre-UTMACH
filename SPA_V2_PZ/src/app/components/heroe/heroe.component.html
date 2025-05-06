@@ -1,0 +1,18 @@
+<div class="card mx-auto mt-4" style="width: 24rem;">
+  <img [src]="'/img/' + heroe.img" class="card-img-top" [alt]="heroe.nombre">
+  <div class="card-body">
+    <h5 class="card-title">{{ heroe.nombre }}</h5>
+    <p class="card-text">{{ heroe.bio }}</p>
+    <ul class="list-group list-group-flush mt-3">
+      <li class="list-group-item"><strong>Aparición:</strong> {{ heroe.aparicion }}</li>
+      <li class="list-group-item"><strong>Casa:</strong> {{ heroe.casa }}</li>
+
+      <div *ngIf="heroe.casa === 'Marvel'; else elseBlock">
+        <img [src]="'/img/marvel.png'" class="card-img-top" [alt]="heroe.nombre">
+            </div><ng-template #elseBlock>
+              <img [src]="'/img/dc.png'" class="card-img-top" [alt]="heroe.nombre">
+                  </ng-template>
+    </ul>
+    <a routerLink="/heroes" class="btn btn-secondary mt-3">Atras</a>
+  </div>
+</div>
